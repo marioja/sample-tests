@@ -1,6 +1,6 @@
 Fixed the problem with the IBM m2e plugins. When using looseconfig, they expect the JEE module to be called:
 
->artfactId-version.war
+>artifactId-version.war
 
 instead of the maven default of
 
