@@ -14,6 +14,17 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <!-- Use a custom classpath layout to conform to the default ear outputFileNameMapping so the jars will be found -->
+              <classpathLayoutType>custom</classpathLayoutType>
+              <customClasspathLayout>lib/$${artifact.artifactId}-$${artifact.version}$${dashClassifier?}.$${artifact.extension}</customClasspathLayout>
+            </manifest>
+          </archive>
+          <!-- Change output filename to match IBM plugins defaults.
+          The IBM plugins should follow the maven defaults but they do not. -->
+          <outputFileNameMapping>@{artifactId}@-@{version}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
         </configuration>
       </plugin>
     </plugins>
