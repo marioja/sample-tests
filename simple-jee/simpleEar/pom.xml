@@ -28,9 +28,6 @@
       <plugin>
         <artifactId>maven-ear-plugin</artifactId>
         <configuration>
-          <!-- Change output filename to match IBM plugins defaults.
-          The IBM plugins should follow the maven defaults but they do not. -->
-          <outputFileNameMapping>@{artifactId}@-@{version}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
           <skinnyWars>true</skinnyWars>
           <modules>
             <webModule>
