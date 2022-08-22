@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration packages="ca.gc.cbsa.shared.logging" status="info">
+
+  <Appenders>
+    <!-- Ensure that the folder after env_filePath is the same as the duname -->
+    <RollingFile name="simple_APPENDER" 
+    fileName="logs/simple_%j_%p.log" 
+    filePattern="logs-archives/simple-%d{MM-dd-HH}-%i.log.gz">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{10}- %m%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="100K" />
+        <TimeBasedTriggeringPolicy interval="2"/>
+      </Policies>
+      <DefaultRolloverStrategy max="20" />               
+    </RollingFile>
+    <!--
+    <Console name="CONSOLE_APPENDER" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{10}- %m%n" />
+    </Console>
+    -->
+  </Appenders>
+
+  <Loggers>
+    <!--
+    <Logger name="gc" level="${ctx:env_loggingLevel}" additivity="false">
+      <AppenderRef ref="MFJSync_APPENDER" />
+    </Logger>
+    -->
+
+    <Root level="INFO" additivity="false">
+      <AppenderRef ref="simple_APPENDER" />
+      <!--<AppenderRef ref="CONSOLE_APPENDER" />-->
+    </Root>
+  </Loggers>
+
+</Configuration>
