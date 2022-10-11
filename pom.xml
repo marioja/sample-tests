@@ -310,5 +310,6 @@
   </build>
   <modules>
     <module>simple-jee</module>
+    <module>simpleExternalJar</module>
   </modules>
 </project>

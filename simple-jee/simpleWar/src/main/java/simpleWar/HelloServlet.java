@@ -1,6 +1,7 @@
 package simpleWar;
 
 import static simpleWar.GreatWar.displayHello;
+import static dev.simplejar.Display.info;
 
 import java.io.IOException;
 
@@ -38,7 +39,8 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String group=getInitParameter("group");
-		response.getWriter().append("Served at: ").append(request.getContextPath()).append(" for group ").append(group)
+		response.getWriter().append(this.getClass().getCanonicalName()).append(" Served at: ").append(request.getContextPath()).append(" for group ").append(group)
+		.append(" ").append(info(group))
 		;
 		displayHello(group);
 		logger.info("Hello from slf4j");

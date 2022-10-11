@@ -29,4 +29,21 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>dev.sample.skinny.wars</groupId>
+      <artifactId>simpleJar</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.sample.skinny.wars</groupId>
+      <artifactId>simpleExtraJar</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.sample</groupId>
+      <artifactId>simpleExternalJar</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>

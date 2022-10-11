@@ -12,6 +12,11 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>simpleJar</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>simpleWar</artifactId>
       <version>${project.version}</version>
       <type>war</type>
@@ -38,6 +43,10 @@
               <groupId>${project.groupId}</groupId>
               <artifactId>simpleWar</artifactId>
             </webModule>
+            <jarModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>simpleJar</artifactId>
+            </jarModule>
           </modules>
         </configuration>
       </plugin>
