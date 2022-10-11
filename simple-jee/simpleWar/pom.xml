@@ -29,4 +29,15 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.sample.skinny.wars</groupId>
+      <artifactId>simpleJar</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>

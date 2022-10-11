@@ -15,6 +15,7 @@
   <modules>
     <module>simpleEar</module>
     <module>simpleWar</module>
+    <module>simpleJar</module>
   </modules>
   <dependencies>
     <dependency>
