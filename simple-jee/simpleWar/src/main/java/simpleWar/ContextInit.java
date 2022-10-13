@@ -1,7 +1,6 @@
 package simpleWar;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
@@ -17,11 +16,14 @@ import org.apache.logging.log4j.core.config.builder.api.ConfigurationBuilderFact
 import org.apache.logging.log4j.core.config.builder.api.RootLoggerComponentBuilder;
 import org.apache.logging.log4j.core.config.builder.impl.BuiltConfiguration;
 
+import simpleUtil.ContextUtil;
+
 @SuppressWarnings("unused")
 @WebListener
 public class ContextInit implements ServletContextListener {
 	
 	private static final Logger logger;
+	private static Properties theP=ContextUtil.getContext(ContextInit.class.getClassLoader());
 	static {
 		try {
 			if (1==3) { // set to true to initialize programmatically (https://www.baeldung.com/log4j2-programmatic-config)
@@ -42,17 +44,9 @@ public class ContextInit implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		Properties p=new Properties();
-		loadSuper(p, this.getClass().getClassLoader());
-	}
-
-	private static void loadSuper(Properties p, ClassLoader cl) {
-		try {
-			p.load(Objects.requireNonNull(cl.getResourceAsStream("dev/super.properties"), "problem loading property file super.properties"));
-			logger.info("The guru for this location is {}", Objects.requireNonNull(p.getProperty("guru")));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+		System.out.println("Properties= "+theP.toString());
+//		getContext();
+//		getContext(this.getClass().getClassLoader());
 	}
 
 	@Override
@@ -62,7 +56,7 @@ public class ContextInit implements ServletContextListener {
 	}
 	public static void main(String[] args) {
 		Properties p=new Properties();
-		loadSuper(p, ContextInit.class.getClassLoader());
+		ContextUtil.getContext(ContextInit.class.getClassLoader());
 		logger.info("You are {} and I am {}", 4, 6);
 	}
 }

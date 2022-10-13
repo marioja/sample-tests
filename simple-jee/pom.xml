@@ -28,4 +28,12 @@
     <sha1>0</sha1>
     <changelist>-SNAPSHOT</changelist>
   </properties>
+  <profiles>
+    <profile>
+      <id>installMyUtil</id>
+      <modules>
+        <module>myUtil</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>

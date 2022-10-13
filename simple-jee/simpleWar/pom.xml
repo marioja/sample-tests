@@ -39,5 +39,10 @@
       <artifactId>simpleJar</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>dev.poms</groupId>
+      <artifactId>myUtil</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
