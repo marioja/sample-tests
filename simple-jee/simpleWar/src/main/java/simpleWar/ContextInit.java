@@ -23,7 +23,7 @@ import simpleUtil.ContextUtil;
 public class ContextInit implements ServletContextListener {
 	
 	private static final Logger logger;
-	private static Properties theP=ContextUtil.getContext(ContextInit.class.getClassLoader());
+	private static Properties theP=ContextUtil.getContext(ContextUtil.class.getClassLoader());
 	static {
 		try {
 			if (1==3) { // set to true to initialize programmatically (https://www.baeldung.com/log4j2-programmatic-config)
