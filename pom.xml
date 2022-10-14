@@ -311,4 +311,34 @@
   <modules>
     <module>simple-jee</module>
   </modules>
+  <profiles>
+    <profile>
+      <id>eclipse</id>
+      <build>
+          <plugins>
+            <plugin>
+              <artifactId>maven-clean-plugin</artifactId>
+              <configuration>
+                <filesets>
+                  <fileset>
+                    <directory>${basedir}</directory>
+                    <useDefaultExcludes>true</useDefaultExcludes>
+                    <includes>
+                      <include>.classpath</include>
+                      <include>.settings/**</include>
+                      <include>.factorypath</include>
+                      <include>.project</include>
+                      <include>.flattened-pom.xml</include>
+                      <include>.updated-pom.xml</include>
+                      <include>src/main/webapp/META-INF/MANIFEST.MF</include>
+                      <include>src/main/application/META-INF/application.xml</include>
+                    </includes>
+                  </fileset>
+                </filesets>
+              </configuration>
+            </plugin>
+          </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
