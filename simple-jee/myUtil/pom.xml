@@ -4,6 +4,7 @@
     <groupId>dev.poms</groupId>
     <artifactId>simple-jee-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <relativePath></relativePath>
   </parent>
   <artifactId>myUtil</artifactId>
   <dependencies>
