@@ -1,5 +1,7 @@
 This example demonstrates the problem when deploying to WAS 8.5.5.14 using resources within the workspace. When the application is started, you will see an error with the ContextInit trying to load the super.properties file.  You will see the the classloader used to retrieve the super.properties is the application classloader and that for some reason the application classloader is missing the simpleJar, hence the failure.
 
+Before deploying this branch to your local WAS you must delete the Eclipse project definition for the module myUtil (it must appear just like a simple folder in the simple-jee module.  Then run the Maven Build launch configuration `sample-tests install myUtil` using a JDK (WAS's JDK 8 will do) as your default workspace JRE (and also must be a selected as the JavaSE 1.8 execution environment).  This will install myUtil-1.0.0-SNAPSHOT.jar into your local maven repository.  This jar must come from the local repository and must not be a java module during the deploy with the IBM eclipse plugins for this problem to be reproduced.
+
 The following screen shot illustrates this problem. This illustrates the WAS classpath when deploying this branch to WAS using the IBM plugins and with the settings "resources within the workspace":
 
 ![looseconfig classpath image](looseconfig classpath problem.png)
