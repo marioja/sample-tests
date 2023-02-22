@@ -310,5 +310,6 @@
   </build>
   <modules>
     <module>simple-jee</module>
+    <module>TestReport</module>
   </modules>
 </project>
