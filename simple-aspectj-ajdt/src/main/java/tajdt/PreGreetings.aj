@@ -4,6 +4,7 @@ public aspect PreGreetings {
 	
 	private int Main.greetingsCount=0;
 
+	pointcut newGreeting(Main m): execution(public Main.new(..)) && this(m);
 	pointcut greete(String msg): execution(* tajdt.Main.doGreetings(String)) && args(msg);
 	pointcut greetc(String msg): call(* tajdt.Main.doGreetings(String)) && args(msg);
 	pointcut greetno(): call(* tajdt.Main.doGreetings(String));
@@ -20,8 +21,8 @@ public aspect PreGreetings {
 		Main.logger.info("Just before.");
 	}
 	
-	after(String msg): greetc(msg) {
-//		Main.greetingsCount++;
-//		System.out.println("counted: "+MainAJDT.greetingsCount);
+	after(String msg, Main m): greetc(msg) && newGreeting(m){
+//		m.greetingsCount++;
+//		System.out.println("counted: "+m.greetingsCount);
 	}
 }
