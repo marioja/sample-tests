@@ -9,15 +9,15 @@ public aspect PreGreetings {
 	pointcut greetno(): call(* tajdt.Main.doGreetings(String));
 	
 	before(String msg): greete(msg) {
-		System.out.println("About(execute) to print this message: "+msg);
+		Main.logger.info("About(execute) to print this message: "+msg);
 	}
 	
 	before(String msg): greetc(msg) {
-		System.out.println("About(call) to print this message: "+msg);
+		Main.logger.info("About(call) to print this message: "+msg);
 	}
 	
 	before(): greetno() {
-		System.out.println("Just before.");
+		Main.logger.info("Just before.");
 	}
 	
 	after(String msg): greetc(msg) {
