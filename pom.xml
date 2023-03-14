@@ -24,7 +24,7 @@
     <checkstyle.consoleOutput>false</checkstyle.consoleOutput>
     <pmd.failOnViolation>false</pmd.failOnViolation>
     <aspectj.version>1.9.2</aspectj.version>
-    <aspectj.maven.version>1.11</aspectj.maven.version>
+    <aspectj.maven.version>1.14.0</aspectj.maven.version>
     <junit5.version>5.6.3</junit5.version>
     <junit4.version>4.13.2</junit4.version>
     <slf4j.version>1.7.28</slf4j.version>
