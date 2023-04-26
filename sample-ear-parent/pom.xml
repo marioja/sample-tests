@@ -22,4 +22,18 @@
   </properties>
   <version>${revision}.${sha1}${changelist}</version>
   <groupId>net.mfjassociates.example</groupId>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.19.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.19.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
