@@ -27,9 +27,9 @@ hs_err_pid*
 .settings
 .classpath
 .factorypath
-*/META-INF/MANIFEST.MF
-*.log
+**/META-INF/MANIFEST.MF
 **/META-INF/application.xml
 **/META-INF/maven
 .flattened-pom.xml
 target
+*.log

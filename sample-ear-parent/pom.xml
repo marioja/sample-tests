@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.mfjassociates.maven</groupId>
+    <artifactId>recent-plugins</artifactId>
+    <version>2023-03.2</version>
+    <relativePath/>
+  </parent>
+  <artifactId>sample-ear-parent</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>SampleWar</module>
+    <module>SampleEar</module>
+  </modules>
+  <properties>
+    <servlet-api.version>3.0.1</servlet-api.version>
+    <revision>1.0</revision>
+    <sha1>0</sha1>
+    <changelist>-SNAPSHOT</changelist>
+  </properties>
+  <version>${revision}.${sha1}${changelist}</version>
+  <groupId>net.mfjassociates.example</groupId>
+</project>

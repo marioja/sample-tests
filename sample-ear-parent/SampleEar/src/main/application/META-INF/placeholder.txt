@@ -1,0 +1,1 @@
+Since git does not store empty folder, this file will prevent maven creating unmanaged folders and making the working copy "dirty"
