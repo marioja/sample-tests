@@ -18,8 +18,9 @@
       </dependency>
       <dependency>
         <groupId>net.mfjassociates.example</groupId>
-        <artifactId>OtherModule</artifactId>
+        <artifactId>samplewar-skinny-deps</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
