@@ -24,4 +24,20 @@
       <version>${spring.security.version}</version>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>never</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>  
 </project>
