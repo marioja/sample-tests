@@ -36,4 +36,15 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <skinnyWars>true</skinnyWars>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
