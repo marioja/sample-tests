@@ -17,6 +17,8 @@
     <revision>1.0</revision>
     <sha1>0</sha1>
     <changelist>-SNAPSHOT</changelist>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
   <version>${revision}.${sha1}${changelist}</version>
   <groupId>net.mfjassociates.example</groupId>
