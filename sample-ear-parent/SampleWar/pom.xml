@@ -23,8 +23,13 @@
         <type>pom</type>
       </dependency>
       <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-core</artifactId>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-taglibs</artifactId>
+        <version>${spring.security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.mfjassociates.example</groupId>
+        <artifactId>OtherModule</artifactId>
       </dependency>
   </dependencies>
 </project>
