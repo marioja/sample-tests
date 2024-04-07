@@ -311,5 +311,7 @@
   <modules>
     <module>simple-jee</module>
     <module>TestReport</module>
+    <module>JavaWebsocket</module>
+    <module>TyrusWebsocket</module>
   </modules>
 </project>
