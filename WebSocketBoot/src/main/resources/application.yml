@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+spring:
+  websocket:
+    client:
+      trust-store: classpath:your-truststore.jks
+      trust-store-password: your-password
+      trust-store-type: JKS

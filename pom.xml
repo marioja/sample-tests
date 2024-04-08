@@ -313,5 +313,6 @@
     <module>TestReport</module>
     <module>JavaWebsocket</module>
     <module>TyrusWebsocket</module>
+    <module>WebSocketBoot</module>
   </modules>
 </project>
