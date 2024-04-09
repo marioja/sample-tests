@@ -13,4 +13,5 @@
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="WebSocketBoot"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="WebSocketBoot"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dhttp.proxyHost=lh12bcgn243068.omega.dce-eir.net -Dhttp.proxyPort=3128 -Dhttps.proxyHost=lh12bcgn243068.omega.dce-eir.net -Dhttps.proxyPort=3128 -Dorg.apache.tomcat.websocket.SSL_TRUSTSTORE=classpath:emptyStore.keystore -Dorg.apache.tomcat.websocket.SSL_TRUSTSTORE_PWD=storePassword"/>
 </launchConfiguration>
