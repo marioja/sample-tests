@@ -3,7 +3,7 @@
     <stringAttribute key="bad_container_name" value="."/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/TyrusWebsocket/src/main/java/net/mfjassociates/Main.java"/>
+        <listEntry value="/sample-tests/TyrusWebsocket/src/main/java/net/mfjassociates/Main.java"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>

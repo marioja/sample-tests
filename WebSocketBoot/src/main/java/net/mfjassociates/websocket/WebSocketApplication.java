@@ -1,4 +1,4 @@
-package ca.gc.cbsa.devcenter.websocket;
+package net.mfjassociates.websocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

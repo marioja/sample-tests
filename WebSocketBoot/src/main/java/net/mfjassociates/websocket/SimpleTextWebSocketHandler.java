@@ -1,4 +1,4 @@
-package ca.gc.cbsa.devcenter.websocket;
+package net.mfjassociates.websocket;
 
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;

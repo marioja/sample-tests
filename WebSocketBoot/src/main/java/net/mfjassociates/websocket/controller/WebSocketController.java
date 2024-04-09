@@ -1,4 +1,4 @@
-package ca.gc.cbsa.devcenter.websocket.controller;
+package net.mfjassociates.websocket.controller;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -9,7 +9,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 
-import ca.gc.cbsa.devcenter.websocket.SimpleTextWebSocketHandler;
+import net.mfjassociates.websocket.SimpleTextWebSocketHandler;
 
 @RestController
 public class WebSocketController {
