@@ -314,5 +314,6 @@
     <module>JavaWebsocket</module>
     <module>TyrusWebsocket</module>
     <module>WebSocketBoot</module>
+    <module>TomcatWebSocket</module>
   </modules>
 </project>
