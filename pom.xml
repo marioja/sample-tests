@@ -160,18 +160,6 @@
       <artifactId>jms-api</artifactId>
     </dependency>
   </dependencies>
-  <distributionManagement>
-    <repository>
-      <id>cbsa.repository${env.DCENV}</id>
-      <name>Cbsa Release Repository</name>
-      <url>http://cbsa-maven${env.DCENV}asfc.${env.USERDOMAIN}.dce-eir.net:8081/repository/maven-releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>cbsa.repository${env.DCENV}</id>
-      <name>Cbsa Snapshot Repository</name>
-      <url>http://cbsa-maven${env.DCENV}asfc.${env.USERDOMAIN}.dce-eir.net:8081/repository/maven-snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
   <build>
     <plugins>
       <plugin>
