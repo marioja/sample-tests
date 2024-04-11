@@ -15,13 +15,14 @@ import java.util.Map;
 
 import javax.websocket.*;
 
-@ClientEndpoint
+//@ClientEndpoint
 public class TomcatWebSocket extends Endpoint {
     private static Object waitLock = new Object();
 
     @Override
     public void onOpen(Session session, EndpointConfig config) {
         try {
+            System.out.println("Sending message");
             session.getBasicRemote().sendText("Hello");
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -29,10 +30,10 @@ public class TomcatWebSocket extends Endpoint {
     }
 
     @OnMessage
-    public void onMessage(String message) throws InterruptedException {
+    public void onMessage(Session session, String message) {
         System.out.println("Received msg: " + message);
         synchronized(waitLock) {
-        	waitLock.notify();
+         waitLock.notify();
         }
     }
     private static final String KEYSTORE_NAME = "emptyStore.keystore";
@@ -42,7 +43,7 @@ public class TomcatWebSocket extends Endpoint {
         tempDirectory.toFile().deleteOnExit();
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         // Create a configuration object
-        ClientEndpointConfig config = ClientEndpointConfig.Builder.create().build();
+        ClientEndpointConfig config = ClientEndpointConfig.Builder.create().decoders(null).encoders(null).build();
 
         // copy the keystore from the classpath to a temp folder.  The SSL trust store must be a java.io.File
         URL ks = TomcatWebSocket.class.getResource("/"+KEYSTORE_NAME);
@@ -51,17 +52,20 @@ public class TomcatWebSocket extends Endpoint {
             Files.copy(in, ksp, StandardCopyOption.REPLACE_EXISTING);
         }
         // Set user properties
-        Map<String, Object> trustStoreProperties=new HashMap<>();
-        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PROPERTY, ksp.toAbsolutePath().toString());
-        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PWD_PROPERTY, "storePassword");
-        config.getUserProperties().putAll(trustStoreProperties);
+//        Map<String, Object> trustStoreProperties=config.getUserProperties();
+//        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PROPERTY, ksp.toAbsolutePath().toString());
+//        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PWD_PROPERTY, "changeit");
         try {
-            Session session = container.connectToServer(TomcatWebSocket.class, config, new URI("ws://echo.websocket.org"));
+            Session session = container.connectToServer(TomcatWebSocket.class, config, new URI("wss://echo.websocket.org"));
             synchronized(waitLock) {
                 waitLock.wait();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    @OnError
+    public void onError(Session session, Throwable t) {
+        t.printStackTrace();
     }
 }
