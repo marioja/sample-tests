@@ -1,19 +1,24 @@
 package net.mfjassociates.websocket;
 
-import org.apache.tomcat.websocket.Constants;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.HashMap;
 import java.util.Map;
 
-import javax.websocket.*;
+import javax.websocket.ClientEndpointConfig;
+import javax.websocket.ContainerProvider;
+import javax.websocket.Endpoint;
+import javax.websocket.EndpointConfig;
+import javax.websocket.MessageHandler;
+import javax.websocket.OnError;
+import javax.websocket.Session;
+import javax.websocket.WebSocketContainer;
+
+import org.apache.tomcat.websocket.Constants;
 
 //@ClientEndpoint
 public class TomcatWebSocket extends Endpoint {
@@ -22,6 +27,13 @@ public class TomcatWebSocket extends Endpoint {
     @Override
     public void onOpen(Session session, EndpointConfig config) {
         try {
+            session.addMessageHandler(new MessageHandler.Whole<String>() {
+                @Override
+                public void onMessage(String message) {
+                    // This method is called whenever a message is received
+                    System.out.println("Received message: " + message);
+                }
+            });
             System.out.println("Sending message");
             session.getBasicRemote().sendText("Hello");
         } catch (Exception e) {
@@ -29,14 +41,8 @@ public class TomcatWebSocket extends Endpoint {
         }
     }
 
-    @OnMessage
-    public void onMessage(Session session, String message) {
-        System.out.println("Received msg: " + message);
-        synchronized(waitLock) {
-         waitLock.notify();
-        }
-    }
-    private static final String KEYSTORE_NAME = "emptyStore.keystore";
+    
+    private static final String KEYSTORE_NAME = "openJdk17Cacerts";
 
     public static void main(String[] args) throws IOException {
         Path tempDirectory = Files.createTempDirectory("trust");
@@ -52,9 +58,9 @@ public class TomcatWebSocket extends Endpoint {
             Files.copy(in, ksp, StandardCopyOption.REPLACE_EXISTING);
         }
         // Set user properties
-//        Map<String, Object> trustStoreProperties=config.getUserProperties();
-//        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PROPERTY, ksp.toAbsolutePath().toString());
-//        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PWD_PROPERTY, "changeit");
+        Map<String, Object> trustStoreProperties=config.getUserProperties();
+        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PROPERTY, ksp.toAbsolutePath().toString());
+        trustStoreProperties.put(Constants.SSL_TRUSTSTORE_PWD_PROPERTY, "changeit");
         try {
             Session session = container.connectToServer(TomcatWebSocket.class, config, new URI("wss://echo.websocket.org"));
             synchronized(waitLock) {
@@ -63,9 +69,5 @@ public class TomcatWebSocket extends Endpoint {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-    @OnError
-    public void onError(Session session, Throwable t) {
-        t.printStackTrace();
     }
 }
